@@ -65,8 +65,15 @@ export default function Footer() {
       <Container maxWidth="lg">
         <Toolbar className={classes.toolBar}>
           <div className={classes.title}>
-            <Typography variant="h6">{"Citrine"}</Typography>
-            <Typography variant="caption">{"L'atelier Digital"}</Typography>
+            <Typography variant="h4" style={{ fontFamily: "Brush Script Std" }}>
+              {"Citrine"}
+            </Typography>
+            {/* <Typography
+              variant="caption"
+              style={{ fontFamily: "Brush Script Std" }}
+            >
+              {"L'atelier Digital"}
+            </Typography> */}
             <Grid
               style={{
                 marginTop: 7,
