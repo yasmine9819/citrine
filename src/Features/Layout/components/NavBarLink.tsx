@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "12px",
       fontWeight: 200,
       "&:hover": {
-        color: "#FA6900",
+        color: "#fb8733",
       },
     },
   })
