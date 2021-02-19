@@ -3,12 +3,13 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import NavBarLink from "./NavBarLink";
+import NavBarLink from "../../Components/NavBarLink";
 import { Container, Grid, Typography } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
+import { scrollToRef } from "../../utils/globalFunctions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,7 +54,20 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Footer() {
+interface Props {
+  homeRef: React.RefObject<HTMLDivElement> | null;
+  aboutRef: React.RefObject<HTMLDivElement> | null;
+  servicesRef: React.RefObject<HTMLDivElement> | null;
+  contactRef: React.RefObject<HTMLDivElement> | null;
+}
+
+export default function Footer({
+  homeRef,
+  aboutRef,
+  servicesRef,
+  contactRef,
+  ...props
+}: Props) {
   const classes = useStyles();
 
   return (
@@ -84,10 +98,10 @@ export default function Footer() {
               alignItems="center"
               spacing={1}
             >
-              <Grid item xs={2}>
+              <Grid item>
                 <PhoneIcon className={classes.contactIcons} />
               </Grid>
-              <Grid item xs={10}>
+              <Grid item>
                 <Typography variant="body1"> {"072862762"}</Typography>
               </Grid>
             </Grid>
@@ -98,20 +112,38 @@ export default function Footer() {
               alignItems="center"
               spacing={1}
             >
-              <Grid item xs={2}>
+              <Grid item>
                 <EmailIcon className={classes.contactIcons} />
               </Grid>
-              <Grid item xs={10}>
-                <Typography variant="body1"> {"citrin@mail.com"}</Typography>
+              <Grid item>
+                <Typography variant="body2">
+                  {"contact@citrine-digital.com"}
+                </Typography>
               </Grid>
             </Grid>
           </div>
 
           <div className={classes.linksContainer}>
-            <NavBarLink name="home" type="footer" />
-            <NavBarLink name="about " type="footer" />
-            <NavBarLink name="services " type="footer" />
-            <NavBarLink name="contact " type="footer" />
+            <NavBarLink
+              name="home"
+              type="footer"
+              handleScroll={() => scrollToRef(homeRef)}
+            />
+            <NavBarLink
+              name="about "
+              type="footer"
+              handleScroll={() => scrollToRef(aboutRef)}
+            />
+            <NavBarLink
+              name="services "
+              type="footer"
+              handleScroll={() => scrollToRef(servicesRef)}
+            />
+            <NavBarLink
+              name="contact "
+              type="footer"
+              handleScroll={() => scrollToRef(contactRef)}
+            />
           </div>
           <div className={classes.iconsContainer}>
             <IconButton>

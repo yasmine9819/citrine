@@ -4,10 +4,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import NavBarLink from "./NavBarLink";
-import logo from "../../../Resources/logo.png";
-import Menu from "./Menu";
+import NavBarLink from "../../Components/NavBarLink";
+import logo from "../../Resources/logo.png";
+import Menu from "./components/Menu";
 import { Container } from "@material-ui/core";
+import { scrollToRef } from "../../utils/globalFunctions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,7 +41,19 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function PrimarySearchAppBar() {
+interface Props {
+  homeRef: React.RefObject<HTMLDivElement> | null;
+  aboutRef: React.RefObject<HTMLDivElement> | null;
+  servicesRef: React.RefObject<HTMLDivElement> | null;
+  contactRef: React.RefObject<HTMLDivElement> | null;
+}
+export default function PrimarySearchAppBar({
+  homeRef,
+  aboutRef,
+  servicesRef,
+  contactRef,
+  ...props
+}: Props) {
   const classes = useStyles();
   const [state, setState] = React.useState(false);
 
@@ -67,10 +80,26 @@ export default function PrimarySearchAppBar() {
             <img src={logo} className={classes.logo} />
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <NavBarLink name="home" type="header" />
-              <NavBarLink name="about " type="header" />
-              <NavBarLink name="services " type="header" />
-              <NavBarLink name="contact " type="header" />
+              <NavBarLink
+                name="home"
+                type="header"
+                handleScroll={() => scrollToRef(homeRef)}
+              />
+              <NavBarLink
+                name="about "
+                type="header"
+                handleScroll={() => scrollToRef(aboutRef)}
+              />
+              <NavBarLink
+                name="services "
+                type="header"
+                handleScroll={() => scrollToRef(servicesRef)}
+              />
+              <NavBarLink
+                name="contact "
+                type="header"
+                handleScroll={() => scrollToRef(contactRef)}
+              />
             </div>
             <div className={classes.sectionMobile}>
               <IconButton
@@ -86,7 +115,14 @@ export default function PrimarySearchAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
-      <Menu state={state} toggleDrawer={toggleDrawer} />
+      <Menu
+        state={state}
+        toggleDrawer={toggleDrawer}
+        homeRef={homeRef}
+        aboutRef={aboutRef}
+        servicesRef={servicesRef}
+        contactRef={contactRef}
+      />
     </div>
   );
 }
