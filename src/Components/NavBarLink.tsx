@@ -8,6 +8,7 @@ type Type = "header" | "footer";
 interface Props {
   name: string;
   type: Type;
+  handleScroll?: () => void;
 }
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -55,7 +56,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function NavBarLink({ name, type, ...props }: Props) {
+export default function NavBarLink({
+  name,
+  type,
+  handleScroll,
+  ...props
+}: Props) {
   const classes = useStyles();
 
   return (
@@ -64,6 +70,7 @@ export default function NavBarLink({ name, type, ...props }: Props) {
       component="button"
       className={type === "header" ? classes.linkHeader : classes.linkFooter}
       underline="none"
+      onClick={handleScroll ? () => handleScroll() : () => {}}
     >
       <Typography variant="button">{name}</Typography>
     </Link>

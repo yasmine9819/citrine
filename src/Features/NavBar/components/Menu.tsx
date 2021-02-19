@@ -2,15 +2,12 @@ import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import { Typography } from "@material-ui/core";
+import { scrollToRef } from "../../../utils/globalFunctions";
 
 const useStyles = makeStyles({
   list: {
@@ -39,11 +36,19 @@ interface Props {
     open: boolean
   ) => (event: React.KeyboardEvent | React.MouseEvent) => void;
   state: boolean;
+  homeRef: React.RefObject<HTMLDivElement> | null;
+  aboutRef: React.RefObject<HTMLDivElement> | null;
+  servicesRef: React.RefObject<HTMLDivElement> | null;
+  contactRef: React.RefObject<HTMLDivElement> | null;
 }
 
 export default function SwipeableTemporaryDrawer({
   toggleDrawer,
   state,
+  homeRef,
+  aboutRef,
+  servicesRef,
+  contactRef,
 }: Props) {
   const classes = useStyles();
 
@@ -61,25 +66,41 @@ export default function SwipeableTemporaryDrawer({
           </ListItemText>
         </ListItem>
 
-        <ListItem button className={classes.link}>
+        <ListItem
+          button
+          className={classes.link}
+          onClick={() => scrollToRef(homeRef)}
+        >
           <ListItemText>
             <Typography> {"Home"}</Typography>
           </ListItemText>
         </ListItem>
         <Divider className={classes.divider} />
-        <ListItem button className={classes.link}>
+        <ListItem
+          button
+          className={classes.link}
+          onClick={() => scrollToRef(aboutRef)}
+        >
           <ListItemText>
             <Typography>{"About"}</Typography>
           </ListItemText>
         </ListItem>
         <Divider className={classes.divider} />
-        <ListItem button className={classes.link}>
+        <ListItem
+          button
+          className={classes.link}
+          onClick={() => scrollToRef(servicesRef)}
+        >
           <ListItemText>
             <Typography>{"Services"}</Typography>
           </ListItemText>
         </ListItem>
         <Divider className={classes.divider} />
-        <ListItem button className={classes.link}>
+        <ListItem
+          button
+          className={classes.link}
+          onClick={() => scrollToRef(contactRef)}
+        >
           <ListItemText>
             <Typography>{"Contact"}</Typography>
           </ListItemText>
