@@ -7,6 +7,8 @@ import {
 import Container from "@material-ui/core/Container";
 import Layout from "./Features/Layout";
 import HeroComponent from "./Features/HeroComponent";
+import CardComponent from "./Features/Card";
+import HomePage from "./Pages/Home";
 
 let THEME = createMuiTheme({
   typography: {
@@ -21,11 +23,7 @@ function App() {
   return (
     <MuiThemeProvider theme={THEME}>
       <Layout>
-        <HeroComponent />
-
-        <Container maxWidth="lg">
-          <div style={{ height: 100 }}></div>
-        </Container>
+        <HomePage />
       </Layout>
     </MuiThemeProvider>
   );

@@ -5,11 +5,6 @@ import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    heroBackground: {
-      height: 750,
-      backgroundColor: "#d7dfe2",
-      width: "100%",
-    },
     hero: {
       height: 500,
       width: "100%",
@@ -46,21 +41,19 @@ function HeroComponent() {
   const classes = useStyles();
 
   return (
-    <div className={classes.heroBackground}>
-      <div className={classes.hero}>
-        <div className={classes.heroText}>
-          <Typography variant="h2" className={classes.mainColor}>
-            {"RÉALISATEUR DE CONCEPTS DIGITAUX "}
-          </Typography>
-          <Typography variant="h4" className={classes.secondaryColor}>
-            {
-              "Vous avez un concept digital et innovant ? Vous voulez le concrétiser ?  "
-            }
-          </Typography>
-          <Typography variant="h4" className={classes.secondaryColor}>
-            {"Notre équipe est à votre écoute "}
-          </Typography>
-        </div>
+    <div className={classes.hero}>
+      <div className={classes.heroText}>
+        <Typography variant="h2" className={classes.mainColor}>
+          {"RÉALISATEUR DE CONCEPTS DIGITAUX "}
+        </Typography>
+        <Typography variant="h4" className={classes.secondaryColor}>
+          {
+            "Vous avez un concept digital et innovant ? Vous voulez le concrétiser ?  "
+          }
+        </Typography>
+        <Typography variant="h4" className={classes.secondaryColor}>
+          {"Notre équipe est à votre écoute "}
+        </Typography>
       </div>
     </div>
   );
