@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme: Theme) =>
     contactCard: {
       maxWidth: 900,
       margin: "auto",
-      height: 300,
+      minHeight: 300,
     },
     mainContainer: {
       marginBottom: 100,

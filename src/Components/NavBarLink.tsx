@@ -49,6 +49,8 @@ const useStyles = makeStyles((theme: Theme) =>
       transitionTimingFunction: "ease-out",
       fontSize: "12px",
       fontWeight: 200,
+      minWidth: 48,
+      minHeight: 48,
       "&:hover": {
         color: "#fb8733",
       },

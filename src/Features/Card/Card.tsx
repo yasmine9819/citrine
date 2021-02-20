@@ -88,7 +88,7 @@ export default function CardComponent({
       )}
 
       <CardContent className={classes.content}>
-        <Typography variant="h5" component="h2" className={classes.title}>
+        <Typography variant="h5" component="h3" className={classes.title}>
           {title}
         </Typography>
 
