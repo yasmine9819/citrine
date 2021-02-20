@@ -70,6 +70,7 @@ export default function SwipeableTemporaryDrawer({
           button
           className={classes.link}
           onClick={() => scrollToRef(homeRef)}
+          aria-label="Home"
         >
           <ListItemText>
             <Typography> {"Home"}</Typography>
@@ -80,6 +81,7 @@ export default function SwipeableTemporaryDrawer({
           button
           className={classes.link}
           onClick={() => scrollToRef(aboutRef)}
+          aria-label="About"
         >
           <ListItemText>
             <Typography>{"About"}</Typography>
@@ -90,6 +92,7 @@ export default function SwipeableTemporaryDrawer({
           button
           className={classes.link}
           onClick={() => scrollToRef(servicesRef)}
+          aria-label="Services"
         >
           <ListItemText>
             <Typography>{"Services"}</Typography>
@@ -100,6 +103,7 @@ export default function SwipeableTemporaryDrawer({
           button
           className={classes.link}
           onClick={() => scrollToRef(contactRef)}
+          aria-label="Contact"
         >
           <ListItemText>
             <Typography>{"Contact"}</Typography>

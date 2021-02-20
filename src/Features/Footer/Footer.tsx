@@ -128,28 +128,32 @@ export default function Footer({
               name="home"
               type="footer"
               handleScroll={() => scrollToRef(homeRef)}
+              aria-label="Home"
             />
             <NavBarLink
               name="about "
               type="footer"
               handleScroll={() => scrollToRef(aboutRef)}
+              aria-label="About"
             />
             <NavBarLink
               name="services "
               type="footer"
               handleScroll={() => scrollToRef(servicesRef)}
+              aria-label="Services"
             />
             <NavBarLink
               name="contact "
               type="footer"
               handleScroll={() => scrollToRef(contactRef)}
+              aria-label="Contact"
             />
           </div>
           <div className={classes.iconsContainer}>
-            <IconButton>
+            <IconButton aria-label="Facebook">
               <FacebookIcon className={classes.socialMediaIcon} />
             </IconButton>
-            <IconButton>
+            <IconButton aria-label="LinkedIn">
               <LinkedInIcon className={classes.socialMediaIcon} />
             </IconButton>
           </div>

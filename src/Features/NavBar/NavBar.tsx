@@ -77,39 +77,42 @@ export default function PrimarySearchAppBar({
       <AppBar position="static" color="transparent" elevation={0}>
         <Container maxWidth="lg">
           <Toolbar>
-            <img src={logo} className={classes.logo} />
+            <img src={logo} className={classes.logo} alt="logo" />
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <NavBarLink
                 name="home"
                 type="header"
                 handleScroll={() => scrollToRef(homeRef)}
+                aria-label="Home"
               />
               <NavBarLink
                 name="about "
                 type="header"
                 handleScroll={() => scrollToRef(aboutRef)}
+                aria-label="About"
               />
               <NavBarLink
                 name="services "
                 type="header"
                 handleScroll={() => scrollToRef(servicesRef)}
+                aria-label="Services"
               />
               <NavBarLink
                 name="contact "
                 type="header"
                 handleScroll={() => scrollToRef(contactRef)}
+                aria-label="Contact"
               />
             </div>
             <div className={classes.sectionMobile}>
               <IconButton
-                edge="start"
                 className={classes.menuButton}
                 aria-label="open drawer"
                 size="medium"
                 onClick={toggleDrawer(true)}
               >
-                <MenuIcon />
+                <MenuIcon fontSize="large" />
               </IconButton>
             </div>
           </Toolbar>
