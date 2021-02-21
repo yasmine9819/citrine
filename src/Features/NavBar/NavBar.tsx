@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "flex",
         justifyContent: "space-between",
         maxWidth: 350,
-        width: "-webkit-fill-available",
+        width: "100%",
       },
     },
     sectionMobile: {

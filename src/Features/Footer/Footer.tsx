@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         flexDirection: "row",
 
         justifyContent: "space-between",
-        width: "-webkit-fill-available",
+        width: "100%",
       },
     },
     socialMediaIcon: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("md")]: {
         flexDirection: "row",
 
-        width: "-webkit-fill-available",
+        width: "100%",
       },
     },
     title: {
