@@ -40,6 +40,7 @@ interface Props {
   aboutRef: React.RefObject<HTMLDivElement> | null;
   servicesRef: React.RefObject<HTMLDivElement> | null;
   contactRef: React.RefObject<HTMLDivElement> | null;
+  className?: string;
 }
 
 export default function SwipeableTemporaryDrawer({
@@ -49,6 +50,7 @@ export default function SwipeableTemporaryDrawer({
   aboutRef,
   servicesRef,
   contactRef,
+  className,
 }: Props) {
   const classes = useStyles();
 
@@ -120,6 +122,8 @@ export default function SwipeableTemporaryDrawer({
       open={state}
       onClose={toggleDrawer(false)}
       onOpen={toggleDrawer(true)}
+      className={className}
+      swipeAreaWidth={0}
     >
       {list()}
     </SwipeableDrawer>

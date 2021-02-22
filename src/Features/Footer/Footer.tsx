@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("md")]: {
         flexDirection: "row",
 
-        width: "100%",
+        width: "auto",
       },
     },
     title: {
