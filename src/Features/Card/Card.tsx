@@ -5,7 +5,6 @@ import { CardMedia } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
-import conceptionCard from "../../Resources/conceptionCard.jpg";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,9 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#af4900",
       marginBottom: 15,
       marginTop: 10,
-      // color: "white",
-      // top: "45%",
-      // position: "relative",
     },
     body: {
       color: "#5a7179",
@@ -44,11 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: "auto",
     },
     media: {
-      height: 200,
-      backgroundImage: `  url(${conceptionCard})`,
-      // backgroundColor: "#984321",
-      backgroundColor: "#314e58",
-      backgroundBlendMode: "overlay",
+      minHeight: 300,
     },
   })
 );
@@ -77,6 +69,7 @@ interface Props {
   body: string;
   localStyle?: string;
   bodyStyle?: Variant;
+  image?: string;
 }
 
 export default function CardComponent({
@@ -85,30 +78,18 @@ export default function CardComponent({
   body,
   localStyle,
   bodyStyle,
+  image,
 }: Props) {
   const classes = useStyles();
 
   return (
     <Card className={clsx(classes.root, localStyle)} raised>
-      {icon ? (
+      {icon && (
         <CardMedia className={clsx(classes.content)}>
-          {/* <CardMedia className={clsx(classes.content, classes.media)}> */}
-          {/* {icon} */}
           <div className={classes.iconBackground}>{icon}</div>
-          {/* <img src={conceptionCard} style={{}} /> */}
-          {/* <CardMedia
-            className={classes.media}
-            image={conceptionCard}
-            title="Contemplative Reptile"
-          /> */}
-          {/* <Typography variant="h4" component="h3" className={classes.title}>
-            {title}
-          </Typography> */}
         </CardMedia>
-      ) : (
-        <></>
       )}
-
+      {image && <CardMedia className={classes.media} image={image} />}
       <CardContent className={classes.content}>
         <Typography variant="h5" component="h3" className={classes.title}>
           {title}
